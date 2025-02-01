@@ -1,0 +1,53 @@
+[
+  {"_dataType": "demo"},
+  { "_entity": "party.Party", "partyId": "P1", "partyTypeEnumId": "Person" },
+  { "_entity": "party.Party", "partyId": "P2", "partyTypeEnumId": "Organization" },
+  { "_entity": "party.Party", "partyId": "P3", "partyTypeEnumId": "Person" },
+  { "_entity": "party.Party", "partyId": "P4", "partyTypeEnumId": "Organization" },
+  { "_entity": "party.Party", "partyId": "P5", "partyTypeEnumId": "Person" },
+  { "_entity": "party.Party", "partyId": "P6", "partyTypeEnumId": "Organization" },
+  { "_entity": "party.Party", "partyId": "P7", "partyTypeEnumId": "Person" },
+  { "_entity": "party.Party", "partyId": "P8", "partyTypeEnumId": "Organization" },
+  { "_entity": "party.Party", "partyId": "P9", "partyTypeEnumId": "Person" },
+  { "_entity": "party.Party", "partyId": "P10", "partyTypeEnumId": "Organization" },
+  { "_entity": "party.Party", "partyId": "P11", "partyTypeEnumId": "Person" },
+  { "_entity": "party.Party", "partyId": "P12", "partyTypeEnumId": "Organization" },
+  { "_entity": "party.Party", "partyId": "P13", "partyTypeEnumId": "Person" },
+  { "_entity": "party.Party", "partyId": "P14", "partyTypeEnumId": "Organization" },
+  { "_entity": "party.Party", "partyId": "P15", "partyTypeEnumId": "Person" },
+
+  { "_entity": "party.Organization", "partyId": "P2", "organizationName": "TechCorp", "officeSiteName": "HQ", "annualRevenue": 5000000, "numEmployees": 300 },
+  { "_entity": "party.Organization", "partyId": "P4", "organizationName": "SoftSolutions", "officeSiteName": "Main", "annualRevenue": 10000000, "numEmployees": 800 },
+  { "_entity": "party.Organization", "partyId": "P6", "organizationName": "CloudNet", "officeSiteName": "Branch", "annualRevenue": 3000000, "numEmployees": 150 },
+  { "_entity": "party.Organization", "partyId": "P8", "organizationName": "DataSecure", "officeSiteName": "Head Office", "annualRevenue": 2000000, "numEmployees": 120 },
+  { "_entity": "party.Organization", "partyId": "P10", "organizationName": "EcomX", "officeSiteName": "HQ", "annualRevenue": 7000000, "numEmployees": 500 },
+  { "_entity": "party.Organization", "partyId": "P12", "organizationName": "GreenTech", "officeSiteName": "Corporate", "annualRevenue": 6000000, "numEmployees": 400 },
+  { "_entity": "party.Organization", "partyId": "P14", "organizationName": "CyberNova", "officeSiteName": "Tech Hub", "annualRevenue": 9000000, "numEmployees": 700 },
+
+
+  { "_entity": "party.Person", "partyId": "P1", "firstName": "John", "middleName": "A", "lastName": "Doe", "birthDate": "1990-05-15", "occupation": "Software Engineer" },
+  { "_entity": "party.Person", "partyId": "P3", "firstName": "Jane", "middleName": "B", "lastName": "Smith", "birthDate": "1985-07-22", "occupation": "Doctor" },
+  { "_entity": "party.Person", "partyId": "P5", "firstName": "Mike", "middleName": "C", "lastName": "Johnson", "birthDate": "1992-11-30", "occupation": "Designer" },
+  { "_entity": "party.Person", "partyId": "P7", "firstName": "Anna", "middleName": "D", "lastName": "Brown", "birthDate": "1988-03-25", "occupation": "Lawyer" },
+  { "_entity": "party.Person", "partyId": "P9", "firstName": "Chris", "middleName": "E", "lastName": "Davis", "birthDate": "1995-06-10", "occupation": "Data Analyst" },
+  { "_entity": "party.Person", "partyId": "P11", "firstName": "Sophia", "middleName": "F", "lastName": "Miller", "birthDate": "1980-01-08", "occupation": "Architect" },
+  { "_entity": "party.Person", "partyId": "P13", "firstName": "Liam", "middleName": "G", "lastName": "Taylor", "birthDate": "1993-09-17", "occupation": "Manager" },
+  { "_entity": "party.Person", "partyId": "P15", "firstName": "Emily", "middleName": "H", "lastName": "Anderson", "birthDate": "1991-12-20", "occupation": "Teacher" },
+
+  { "_entity": "party.PartyRole", "partyId": "P1", "roleTypeId": "Customer", "description": "Customer" },
+  { "_entity": "party.PartyRole", "partyId": "P2", "roleTypeId": "CustomerBillTo", "description": "Customer - Bill To" },
+  { "_entity": "party.PartyRole", "partyId": "P2", "roleTypeId": "CustomerEndUser", "description": "Customer - End User" },
+  { "_entity": "party.PartyRole", "partyId": "P1", "roleTypeId": "CustomerPlacing", "description": "Customer - Placing" },
+  { "_entity": "party.PartyRole", "partyId": "P2", "roleTypeId": "CustomerShipTo", "description": "Customer - Ship To" },
+
+  { "_entity": "party.contact.ContactMech", "contactMechId": "C1", "contactMechTypeEnumId": "CmtEmailAddress", "infoString": "john@example.com" },
+  { "_entity": "party.contact.ContactMech", "contactMechId": "C2", "contactMechTypeEnumId": "CmtContactNumber", "infoString": "+1234567890" },
+  { "_entity": "party.contact.ContactMech", "contactMechId": "C3", "contactMechTypeEnumId": "CmtPostalAddress", "infoString": "123 Main St, City, Country" },
+
+  { "_entity": "party.contact.PartyContactMech", "partyId": "P1", "contactMechId": "C1", "contactMechPurposeId": "EmailPrimary", "fromDate": "2024-01-01" },
+  { "_entity": "party.contact.PartyContactMech", "partyId": "P3", "contactMechId": "C2", "contactMechPurposeId": "PhoneHome", "fromDate": "2023-12-15" },
+
+  { "_entity": "party.contact.ContactNumber", "contactMechId": "C2", "countryCode": "+1", "areaCode": "415", "contactNumber": "5551234" },
+
+  { "_entity": "party.contact.PostalAddress", "contactMechId": "C3", "toName": "John Doe", "attnName": "HR Department", "address1": "123 Main St", "city": "San Francisco", "postalCode": "94105" }
+]

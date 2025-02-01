@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<entities xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:noNamespaceSchemaLocation="http://moqui.org/xsd/entity-definition-3.xsd">
+
+    <view-entity entity-name="FindCustomerView" package="party">
+        <member-entity entity-alias="PRTY" entity-name="party.Party"/>
+
+        <member-entity entity-alias="ORG" entity-name="party.Organization" join-from-alias="PRTY" join-optional="true">
+            <key-map field-name="partyId"/>
+        </member-entity>
+
+        <member-entity entity-alias="PERSN" entity-name="party.Person" join-from-alias="PRTY" join-optional="true">
+            <key-map field-name="partyId"/>
+        </member-entity>
+
+        <member-entity entity-alias="PRTYRL" entity-name="party.PartyRole" join-from-alias="PRTY">
+            <key-map field-name="partyId"/>
+        </member-entity>
+
+<!--        ====================================================================================================================        -->
+
+        <member-entity entity-alias="PRTYCMA" entity-name="party.contact.PartyContactMech" join-from-alias="PRTY" join-optional="true">
+            <key-map field-name="partyId"/>
+        </member-entity>
+        <member-entity entity-alias="PSTLADD" entity-name="party.contact.PostalAddress" join-from-alias="PRTYCMA" join-optional="true">
+            <key-map field-name="contactMechId"/>
+        </member-entity>
+
+        <member-entity entity-alias="PRTYCMC" entity-name="party.contact.PartyContactMech" join-from-alias="PRTY" join-optional="true">
+            <key-map field-name="partyId"/>
+        </member-entity>
+        <member-entity entity-alias="CNTNUM" entity-name="party.contact.ContactNumber" join-from-alias="PRTYCMC" join-optional="true">
+            <key-map field-name="contactMechId"/>
+        </member-entity>
+
+        <member-entity entity-alias="PRTYCMEM" entity-name="party.contact.PartyContactMech" join-from-alias="PRTY" join-optional="true">
+            <key-map field-name="partyId"/>
+        </member-entity>
+        <member-entity entity-alias="CMEM" entity-name="party.contact.ContactMech" join-from-alias="PRTYCMEM" join-optional="true">
+            <key-map field-name="contactMechId"/>
+        </member-entity>
+
+<!--        ====================================================================================================================        -->
+
+        <alias entity-alias="PRTY" name="partyId"/>
+        <alias entity-alias="PRTY" name="partyTypeEnumId"/>
+
+        <alias entity-alias="PRTYRL" name="roleTypeId"/>
+
+        <alias entity-alias="ORG" name="organizationName"/>
+        <alias entity-alias="ORG" name="numEmployees"/>
+
+        <alias entity-alias="PERSN" name="firstName"/>
+        <alias entity-alias="PERSN" name="middleName"/>
+        <alias entity-alias="PERSN" name="lastName"/>
+        <alias entity-alias="PERSN" name="birthDate"/>
+
+        <alias entity-alias="PSTLADD" name="address"/>
+        <alias entity-alias="PSTLADD" name="city"/>
+        <alias entity-alias="PSTLADD" name="postalCode"/>
+
+        <alias entity-alias="CNTNUM" name="countryCode"/>
+        <alias entity-alias="CNTNUM" name="areaCode"/>
+        <alias entity-alias="CNTNUM" name="contactNumber"/>
+
+        <alias name="emailAddress" entity-alias="CMEM" field="infoString"/>
+        <alias name="emailContactMechPurposeId" entity-alias="PRTYCMEM" field="contactMechPurposeId"/>
+        <alias name="emailFromDate" entity-alias="PRTYCMEM" field="fromDate"/>
+        <alias name="emailThruDate" entity-alias="PRTYCMEM" field="thruDate"/>
+    </view-entity>
+</entities>

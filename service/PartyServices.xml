@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<services xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:noNamespaceSchemaLocation="http://moqui.org/xsd/service-definition-3.xsd">
+
+    <!--    Find Customer Person    -->
+    <service verb="find" noun="CustomerPerson" type="script"
+             location="component://customer-finder/script/find/FindCustomer.groovy">
+        <in-parameters>
+            <parameter name="emailAddress"/>
+
+            <parameter name="firstName"/>
+            <parameter name="middleName"/>
+            <parameter name="lastName"/>
+            <parameter name="birthDate"/>
+
+            <parameter name="address"/>
+            <parameter name="city"/>
+            <parameter name="postalCode"/>
+            <parameter name="contactNumber"/>
+
+            <parameter name="orderByField" default-value="fullName"/>
+            <parameter name="pageIndex" type="Integer" default="0"/>
+            <parameter name="pageSize" type="Integer" default="20"/>
+        </in-parameters>
+
+        <out-parameters>
+            <parameter name="partyIdList" type="List">
+                <parameter name="partyId"/>
+            </parameter>
+            <parameter name="partyIdListCount" type="Integer"/>
+            <parameter name="partyIdListPageIndex" type="Integer"/>
+            <parameter name="partyIdListPageSize" type="Integer"/>
+        </out-parameters>
+    </service>
+
+    <!--    Customer Organization   -->
+    <service verb="find" noun="CustomerOrg" type="script"
+             location="component://customer-finder/script/find/FindCustomerOrg.groovy">
+        <in-parameters>
+            <parameter name="emailAddress"/>
+
+            <parameter name="organizationName"/>
+            <parameter name="officeSiteName"/>
+            <parameter name="annualRevenue"/>
+            <parameter name="numEmployees"/>
+
+            <parameter name="address"/>
+            <parameter name="city"/>
+            <parameter name="postalCode"/>
+            <parameter name="contactNumber"/>
+
+            <parameter name="orderByField" default-value="orgFullName"/>
+            <parameter name="pageIndex" type="Integer" default="0"/>
+            <parameter name="pageSize" type="Integer" default="20"/>
+        </in-parameters>
+
+        <out-parameters>
+            <parameter name="partyIdList" type="List">
+                <parameter name="partyId"/>
+            </parameter>
+            <parameter name="partyIdListCount" type="Integer"/>
+            <parameter name="partyIdListPageIndex" type="Integer"/>
+            <parameter name="partyIdListPageSize" type="Integer"/>
+        </out-parameters>
+    </service>
+
+<!--    =================================================================================       -->
+
+    <!--    Create Customer Person   -->
+    <service verb="create" noun="CustomerPerson" type="script"
+             location="component://customer-finder/script/create/CreateCustomer.groovy">
+        <in-parameters>
+            <!-- default: type="String" for each parameter here -->
+            <parameter name="email" required="true" />
+            <parameter name="firstName" />
+            <parameter name="middleName" />
+            <parameter name="lastName" />
+            <parameter name="birthDate" />
+        </in-parameters>
+        <out-parameters>
+            <parameter name="partyId" />
+        </out-parameters>
+    </service>
+
+    <!--    Create Customer Organization   -->
+    <service verb="create" noun="CustomerOrg" type="script"
+             location="component://customer-finder/script/create/CreateCustomerOrg.groovy">
+        <in-parameters>
+            <parameter name="email" required="true" />
+            <parameter name="organizationName" />
+            <parameter name="officeSiteName" />
+            <parameter name="annualRevenue" />
+            <parameter name="numEmployees" />
+        </in-parameters>
+        <out-parameters>
+            <parameter name="partyId" />
+        </out-parameters>
+    </service>
+
+<!--    =================================================================================       -->
+
+
+    <!--    Update Customer Person and Organization   -->
+    <service verb="update" noun="Customer" type="script"
+             location="component://customer-finder/update/UpdateCustomer.groovy">
+        <in-parameters>
+            <parameter name="emailAddress" required="true"/>
+            <parameter name="postalAddress" />
+            <parameter name="phoneNumber"/>
+        </in-parameters>
+        <out-parameters>
+            <parameter name="partyId" />
+        </out-parameters>
+    </service>
+</services>
